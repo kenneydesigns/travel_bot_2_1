@@ -10,15 +10,9 @@ from langchain.chains import RetrievalQA
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 from langchain_huggingface.llms import HuggingFacePipeline
 from transformers import PreTrainedTokenizerBase
-from dotenv import load_dotenv
-
-# Load environment variables
-load_dotenv()
-
-MODEL_ID = os.getenv("MODEL_ID", "google/flan-t5-small")
-PORT = int(os.getenv("PORT", 8000))
 
 # --- Configuration ---
+MODEL_ID = "google/flan-t5-base"
 VECTOR_DB_PATH = "vectordb"
 CONTEXT_FOLDER = "context"
 MAX_TOKENS_PROMPT = 512
