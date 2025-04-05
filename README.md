@@ -52,6 +52,14 @@ python travelbot.py
 ---
 
 🧠 How to Use TravelBot
+
+### Update Knowledge Base
+to load chunks
+
+```base
+python update_knowledge_base.py
+```
+
 -   ✅ Option 1: `travelbot.py` – Unified CLI Chatbot  
     Supports three modes:
 
