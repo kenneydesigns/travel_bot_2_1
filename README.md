@@ -67,9 +67,9 @@ python update_knowledge_base.py
     --mode chunk: Retrieves relevant regulation chunks directly.  
     --mode context: Combines chunk retrieval with conversational responses and source references.
     ```bash
-    python travelbot.py --mode simple
-    python travelbot.py --mode chunk
-    python travelbot.py --mode context
+    python src/travelbot.py --mode simple
+    python src/travelbot.py --mode chunk
+    python src/travelbot.py --mode context
     ```
 
 -   ✅ Option 2: `chunkbot.py` – Search-Only Tool  
