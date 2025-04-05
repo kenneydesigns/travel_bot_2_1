@@ -39,12 +39,12 @@ use Visual Studio Code's **Codespaces** <> Code feature to create a codespace on
 
 ### 2. Run the setup script:
 ```bash
-bash [setup.sh](http://_vscodecontentref_/1)
+bash setup.sh
 ```
 ### 3. Then activate your environment and run the chatbot:
 ```bash
 source .venv/bin/activate
-python [travelbot.py](http://_vscodecontentref_/2) --mode context
+python travelbot.py
 ```
 
 💡 If you’re testing from a fresh environment, this flow ensures everything is installed and indexed before your first question.
@@ -59,9 +59,9 @@ python [travelbot.py](http://_vscodecontentref_/2) --mode context
     --mode chunk: Retrieves relevant regulation chunks directly.  
     --mode context: Combines chunk retrieval with conversational responses and source references.
     ```bash
-    python [travelbot.py](http://_vscodecontentref_/3) --mode simple
-    python [travelbot.py](http://_vscodecontentref_/4) --mode chunk
-    python [travelbot.py](http://_vscodecontentref_/5) --mode context
+    python travelbot.py --mode simple
+    python travelbot.py --mode chunk
+    python travelbot.py --mode context
     ```
 
 -   ✅ Option 2: `chunkbot.py` – Search-Only Tool  
@@ -69,7 +69,7 @@ python [travelbot.py](http://_vscodecontentref_/2) --mode context
     Retrieves top regulation chunks directly  
     Great for debugging or validation
     ```bash
-    python [chunkbot.py](http://_vscodecontentref_/6)
+    python chunkbot.py
     ```
 
 -   ✅ Option 3: `simple_bot.py` – Prompt-Controlled Chatbot  
@@ -77,7 +77,7 @@ python [travelbot.py](http://_vscodecontentref_/2) --mode context
     Uses LangChain's RetrievalQA chain  
     Token-limited, clean, predictable
     ```bash
-    python [app.py](http://_vscodecontentref_/7)
+    python app.py
     ```
 
 ---
@@ -145,7 +145,7 @@ TravelBot can index and respond based on:
 #### Build the Initial Index  
 To process all chunks and build the initial FAISS vector database:
 ```bash
-python [build_index.py](http://_vscodecontentref_/8) --mode all
+python build_index.py --mode all
 ```
 ---
 
