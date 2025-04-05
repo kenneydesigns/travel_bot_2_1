@@ -70,11 +70,33 @@ def detect_pii_or_opsec(text):
     return False
 
 # --- Hybrid Response ---
+
+from langchain.chains import create_retrieval_chain
+from langchain.chains.combine_documents import StuffDocumentsChain
+from langchain_core.prompts import PromptTemplate
+from langchain.chains.llm import LLMChain
+
 def hybrid_response(query, llm, retriever):
-    """Generate a response using the LLM and retriever."""
+    """Generate a response using the LLM and retriever (updated to new LangChain format)."""
     try:
-        qa_chain = RetrievalQA(llm=llm, retriever=retriever)
-        return qa_chain.run(query)
+        prompt = PromptTemplate.from_template(
+            "Answer the question based on the documents:
+
+{context}
+
+Question: {input}"
+        )
+        llm_chain = LLMChain(llm=llm, prompt=prompt)
+        combine_docs_chain = StuffDocumentsChain(
+            llm_chain=llm_chain,
+            document_variable_name="context"
+        )
+        retrieval_chain = create_retrieval_chain(
+            retriever=retriever,
+            combine_documents_chain=combine_docs_chain
+        )
+        response = retrieval_chain.invoke({"input": query})
+        return response["answer"]
     except Exception as e:
         logger.error(f"❌ Error generating response: {e}")
         return f"Error generating response: {e}"
