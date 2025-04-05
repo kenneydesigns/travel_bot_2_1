@@ -80,11 +80,11 @@ def hybrid_response(query, llm, retriever):
     """Generate a response using the LLM and retriever (updated to new LangChain format)."""
     try:
         prompt = PromptTemplate.from_template(
-            "Answer the question based on the documents:
+            """Answer the question based on the documents:
 
 {context}
 
-Question: {input}"
+Question: {input}"""
         )
         llm_chain = LLMChain(llm=llm, prompt=prompt)
         combine_docs_chain = StuffDocumentsChain(
