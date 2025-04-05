@@ -92,9 +92,29 @@ fi
 echo "📦 Installing additional critical packages..."
 pip install langchain_community
 if [ $? -eq 0 ]; then
-    echo "✅ Critical packages installed successfully."
+    echo "✅ langchain_community installed successfully."
 else
-    echo "❌ Failed to install critical packages."
+    echo "❌ Failed to install langchain_community."
+    exit 1
+fi
+
+# Installing transformers package
+echo "📦 Installing transformers package..."
+pip install transformers
+if [ $? -eq 0 ]; then
+    echo "✅ transformers installed successfully."
+else
+    echo "❌ Failed to install transformers."
+    exit 1
+fi
+
+# Installing PyTorch (CPU version) packages
+echo "📦 Installing PyTorch packages..."
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+if [ $? -eq 0 ]; then
+    echo "✅ PyTorch packages installed successfully."
+else
+    echo "❌ Failed to install PyTorch packages."
     exit 1
 fi
 
@@ -110,49 +130,3 @@ for package in langchain-community transformers torch sentence-transformers fais
         exit 1
     fi
 done
-
-# Run update_knowledge_base.py to process PDFs and create chunks
-echo "📄 Running update_knowledge_base.py to process PDFs and create chunks..."
-if [ -f "update_knowledge_base.py" ]; then
-    python update_knowledge_base.py
-    if [ $? -eq 0 ]; then
-        echo "✅ update_knowledge_base.py ran successfully."
-    else
-        echo "❌ Failed to run update_knowledge_base.py."
-        exit 1
-    fi
-else
-    echo "⚠️ 'update_knowledge_base.py' not found. Skipping PDF processing."
-fi
-
-# Run build_index.py to build the FAISS vector index
-echo "🧠 Running build_index.py to build the FAISS vector index..."
-if [ -f "build_index.py" ]; then
-    python build_index.py --mode all
-    if [ $? -eq 0 ]; then
-        echo "✅ build_index.py ran successfully."
-    else
-        echo "❌ Failed to run build_index.py."
-        exit 1
-    fi
-else
-    echo "⚠️ 'build_index.py' not found. Skipping index build."
-fi
-
-# Check for .env file and create a default one if missing
-echo "🔍 Checking for .env file..."
-if [ ! -f ".env" ]; then
-    echo "🌱 Creating default .env file..."
-    cat <<EOL > .env
-MODEL_ID=google/flan-t5-small
-PORT=8000
-EOL
-    echo "✅ Default .env file created."
-else
-    echo "✅ .env file found."
-fi
-
-echo ""
-echo "✅ Setup complete."
-echo "👉 To start locally: source .venv/bin/activate && python app.py"
-echo "👉 To start with Docker: docker-compose up --build"
