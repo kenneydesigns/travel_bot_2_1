@@ -1,0 +1,6 @@
+OCONUS = Outside the Continental U.S.
+TLE = Temporary Lodging Expense
+DLA = Dislocation Allowance
+FSO = Financial Services Office
+DTS = Defense Travel System
+GTCC = Government Travel Charge Card

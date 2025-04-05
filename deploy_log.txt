@@ -1,0 +1,65 @@
+vscode ➜ /workspaces/travel_bot_v_2_1 $ docker-compose up --build
+WARN[0000] /workspaces/travel_bot_v_2_1/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+Compose can now delegate builds to bake for better performance.
+ To do so, set COMPOSE_BAKE=true.
+[+] Building 431.5s (12/12) FINISHED                                                                                          docker:default
+ => [travelbot internal] load build definition from Dockerfile                                                                          0.1s
+ => => transferring dockerfile: 837B                                                                                                    0.1s
+ => [travelbot internal] load metadata for docker.io/library/python:3.12-slim                                                           1.8s
+ => [travelbot internal] load .dockerignore                                                                                             0.4s
+ => => transferring context: 2B                                                                                                         0.3s
+ => [travelbot internal] load build context                                                                                            13.7s
+ => => transferring context: 20.91MB                                                                                                   13.6s
+ => [travelbot 1/6] FROM docker.io/library/python:3.12-slim@sha256:a866731a6b71c4a194a845d86e06568725e430ed21821d0c52e4efb385cf6c6f     8.9s
+ => => resolve docker.io/library/python:3.12-slim@sha256:a866731a6b71c4a194a845d86e06568725e430ed21821d0c52e4efb385cf6c6f               0.1s
+ => => sha256:a866731a6b71c4a194a845d86e06568725e430ed21821d0c52e4efb385cf6c6f 9.12kB / 9.12kB                                          0.0s
+ => => sha256:5ada6d11077457411f44a0b126462d1334942b03945ac1686aed5e2c16931380 1.75kB / 1.75kB                                          0.0s
+ => => sha256:73bcaeb9132b14bb09076fefd88ed9169c27c9bdc0a0111dd5348af5e98e3a3a 5.50kB / 5.50kB                                          0.0s
+ => => sha256:6e909acdb790c5a1989d9cfc795fda5a246ad6664bb27b5c688e2b734b2c5fad 28.20MB / 28.20MB                                        2.8s
+ => => sha256:0b564fcd72a23e125aa17f344431b8e2189a5b8f89e78953466669795e7f8089 3.51MB / 3.51MB                                          0.8s
+ => => sha256:e4eb3ff0477a6c3c65761bad0d2aa2c1ce912cdcf883a37226f28e6e277126b6 13.65MB / 13.65MB                                        2.8s
+ => => sha256:75c77ac11059535a2a5409b794c1bec09cac945ffe1dfd92215c68f2ed2d35d4 249B / 249B                                              1.0s
+ => => extracting sha256:6e909acdb790c5a1989d9cfc795fda5a246ad6664bb27b5c688e2b734b2c5fad                                               3.4s
+ => => extracting sha256:0b564fcd72a23e125aa17f344431b8e2189a5b8f89e78953466669795e7f8089                                               0.4s
+ => => extracting sha256:e4eb3ff0477a6c3c65761bad0d2aa2c1ce912cdcf883a37226f28e6e277126b6                                               1.7s
+ => => extracting sha256:75c77ac11059535a2a5409b794c1bec09cac945ffe1dfd92215c68f2ed2d35d4                                               0.0s
+ => [travelbot 2/6] WORKDIR /app                                                                                                        0.2s
+ => [travelbot 3/6] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential     && rm -rf /var/lib/apt/l  33.6s
+ => [travelbot 4/6] COPY . .                                                                                                            0.4s 
+ => [travelbot 5/6] RUN python3 -m pip install --upgrade pip     && pip install --no-cache-dir -r requirements.txt                    340.1s 
+ => [travelbot 6/6] RUN pip show langchain faiss-cpu sentence-transformers transformers accelerate uvicorn fastapi ||     (echo "❌ M    2.5s
+ => [travelbot] exporting to image                                                                                                     43.1s 
+ => => exporting layers                                                                                                                43.1s 
+ => => writing image sha256:a02aa3b6939f4855ebc6b9c2adb2d4a65b0312fc2447d3b628a9c722f59dad3c                                            0.0s 
+ => => naming to docker.io/library/travel_bot_v_2_1-travelbot                                                                           0.0s 
+ => [travelbot] resolving provenance for metadata file                                                                                  0.0s 
+[+] Running 3/3                                                                                                                              
+ ✔ travelbot                               Built                                                                                        0.0s 
+ ✔ Network travel_bot_v_2_1_default        Created                                                                                      0.1s 
+ ✔ Container travel_bot_v_2_1-travelbot-1  Created                                                                                      0.1s 
+Attaching to travelbot-1
+travelbot-1  | INFO:     Will watch for changes in these directories: ['/app']
+travelbot-1  | INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+travelbot-1  | INFO:     Started reloader process [1] using StatReload
+travelbot-1  | 2025-04-05 01:23:59,250 - INFO - 📚 Loading language model...
+travelbot-1  | Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+travelbot-1  | 2025-04-05 01:24:00,123 - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+travelbot-1  | Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+travelbot-1  | 2025-04-05 01:24:04,233 - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+travelbot-1  | Device set to use cpu
+travelbot-1  | /app/src/travelbot.py:90: LangChainDeprecationWarning: The class `HuggingFacePipeline` was deprecated in LangChain 0.0.37 and will be removed in 1.0. An updated version of the class exists in the :class:`~langchain-huggingface package and should be used instead. To use it run `pip install -U :class:`~langchain-huggingface` and import as `from :class:`~langchain_huggingface import HuggingFacePipeline``.
+travelbot-1  |   llm = HuggingFacePipeline(pipeline=pipe)
+travelbot-1  | 2025-04-05 01:24:16,062 - INFO - 🔍 Loading FAISS vector database...
+travelbot-1  | /app/src/travelbot.py:95: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 1.0. An updated version of the class exists in the :class:`~langchain-huggingface package and should be used instead. To use it run `pip install -U :class:`~langchain-huggingface` and import as `from :class:`~langchain_huggingface import HuggingFaceEmbeddings``.
+travelbot-1  |   HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL),
+travelbot-1  | 2025-04-05 01:24:16,350 - INFO - Use pytorch device_name: cpu
+travelbot-1  | 2025-04-05 01:24:16,350 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+travelbot-1  | 2025-04-05 01:24:27,203 - INFO - Loading faiss with AVX2 support.
+travelbot-1  | 2025-04-05 01:24:27,271 - INFO - Successfully loaded faiss with AVX2 support.
+travelbot-1  | 2025-04-05 01:24:27,281 - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+travelbot-1  | INFO:     Started server process [8]
+travelbot-1  | INFO:     Waiting for application startup.
+travelbot-1  | INFO:     Application startup complete.
+
+
+w Enable Watch

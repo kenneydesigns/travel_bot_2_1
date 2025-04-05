@@ -1,0 +1,86 @@
+travel_bot_v_2_1
+|   parse_devcontainer.py
+│   cloudflare.md__
+│   gitignore.txt
+│   LICENSE.txt
+│   README.md
+│   requirements.txt
+│   setup.ps1
+│   setup.sh
+│   tree.txt
+│   update_knowledge_base.py
+│   Dockerfile
+│   docker-compose.yml
+│   .env
+│   build_index.py
+│   setup.log
+│
+├───.devcontainer
+│       devcontainer.json
+│
+├───.vscode
+│       tasks.json
+│       launch.json
+│
+├───context
+│       acknowledgments.txt
+│       bot_intro.txt
+│       context_README.md
+│       context_regulation_hierarchy.txt
+│       definitions.txt
+│       disclaimer.txt
+│       eligibility_notes.txt
+│       faq.txt
+│       sample_questions.txt
+│       temp.txt
+│       tone.txt
+│       tone_examples.txt
+│       user_tips.txt
+│
+├───docs
+├───hello-ngrok
+│       example.py
+│
+├───models
+├───rag
+│   │   context.txt_
+│   │
+│   ├───jtr_chunks
+│   │
+│   └───source_docs
+│           JTR.pdf
+│           dafi36-3003.pdf
+│
+├───src
+│       simplebot.py
+│       app.py.bak
+│       batch_test.py
+│       batch_test_hybrid.py
+│       chunkbot.py
+│       ingest.py
+│       ingest.py.bak
+│       main.py
+│       web_app.py
+│       _init_.py
+│       travelbot.py
+│       compare_batch_results.py
+│
+├───static
+│       styles.css
+│
+├───templates
+│       form.html
+│
+├───tests
+|       devcontainer.test.py
+|
+├───vectordb
+│       travelbot.faiss
+│       travelbot.pkl
+│
+├───vectordb_retrain
+│       travelbot_retrain.faiss
+│       travelbot_retrain.pkl
+│
+├───web
+   └───templates

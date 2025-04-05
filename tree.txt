@@ -1,0 +1,17 @@
+├───.devcontainer
+├───.vscode
+├───context
+├───docs
+├───hello-ngrok
+├───models
+├───rag
+│   ├───jtr_chunks
+│   └───source_docs
+├───src
+├───static
+├───templates
+├───tests
+├───vectordb
+├───vectordb_retrain
+└───web
+    └───templates
